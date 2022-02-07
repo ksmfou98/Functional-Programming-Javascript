@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const log = console.log;
+    </script>
+
+    <textarea>
+        # 제너레이터/이터레이터
+        - 제너레이터: 이터레이터이자 이터러블을 생성하는 함수
+    </textarea>
+
+    <script>
+      function* gen() {
+        yield 1;
+        if (false) yield 2;
+        yield 3;
+      }
+
+      let iter = gen();
+      log(iter[Symbol.iterator]() === iter);
+      log(iter.next());
+      log(iter.next());
+      log(iter.next());
+      log(iter.next());
+
+      for (const a of gen()) log(a);
+    </script>
+  </body>
+</html>
